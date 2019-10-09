@@ -8,7 +8,7 @@ namespace ACM.BL
 {
     public class Customer
     {
-        public Customer()
+        public Customer() :this(0)
         {
 
         }
@@ -16,10 +16,14 @@ namespace ACM.BL
         public Customer(int customerId)
         {
             CustomerID = customerId;
+            AddressList = new List<Address>();
         }
 
+        public List<Address> AddressList { get; set; }
         public int CustomerID { get; private set; }
+        public int CustomerType { get; set; }
         public string EmailAddress { get; set; }
+
         public string FirstName { get; set;}
 
         public string FullName
@@ -52,21 +56,6 @@ namespace ACM.BL
             {
                 _lastName = value;
             }
-        }
-
-        public Customer Retrieve(int customerId)
-        {
-            return new Customer();
-        }
-
-        public List<Customer> Retrieve()
-        {
-            return new List<Customer>();
-        }
-
-        public bool Save()
-        {
-            return true;
         }
 
         public bool Validate()
